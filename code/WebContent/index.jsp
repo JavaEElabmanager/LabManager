@@ -11,18 +11,12 @@
 <title>Lab Manage System</title>
 </head>
 <body>
-	<ul class="nav nav-tabs nav-justified">
-			<li class="active"><a href="#">首页</a></li>
-			<li><a >管理员界面</a></li>
-			<li><a >实验室管理</a></li>
-			<li><a >学生管理</a></li>
-			<li><a >统计分析</a></li>
-		</ul>
+	<img src="img/index.jpg" alt="index.jpg" style="width: 100%;"/>
 		<center><div style="padding: 100px 100px 10px;width: 50%">
-			<form class="bs-example bs-example-form" role="form" action="checklogin.jsp" method="post">
+			<form class="bs-example bs-example-form" action="checklogin.jsp" method="post">
 				<div class="input-group">
 					<span class="input-group-addon">用 户:</span>
-					<input type="text" class="form-control" name="username" placeholder="username">
+					<input type="text" class="form-control" name="username">
 				</div>
 				<br />
 				<div class="input-group">
@@ -30,8 +24,9 @@
 					<input type="password" name="pwd" class="form-control" >
 				</div>
 				<br />
+				<button type="submit" class="btn btn-primary" >登录</button>
 			</form>
-			<button type="submit" class="btn btn-primary" >登录</button>
+			
 		</div></center>
 <%
    String errmsg=(String)session.getAttribute("errormsg");

@@ -12,7 +12,6 @@
 </head>
 <body>
 	<ul class="nav nav-tabs nav-justified">
-			<li><a href="index.jsp">首页</a></li>
 			<li><a href="manager.jsp">管理员界面</a></li>
 			<li><a href="managelab.jsp">实验室管理</a></li>
 			<li><a href="managestudent.jsp">学生管理</a></li>
@@ -31,7 +30,7 @@
 					</span>
 					<input type="text" class="form-control" placeholder="请输入关键字...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Search</button>
+						<button class="btn btn-default" type="button">查询</button>
 					</span>
 				</div><!-- /input-group -->
 			</div><!-- /.col-lg-6 -->
