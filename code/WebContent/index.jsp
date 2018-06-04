@@ -19,19 +19,26 @@
 			<li><a >统计分析</a></li>
 		</ul>
 		<center><div style="padding: 100px 100px 10px;width: 50%">
-			<form class="bs-example bs-example-form" role="form" action="">
+			<form class="bs-example bs-example-form" role="form" action="checklogin.jsp" method="post">
 				<div class="input-group">
 					<span class="input-group-addon">用 户:</span>
-					<input type="text" class="form-control" placeholder="username">
+					<input type="text" class="form-control" name="username" placeholder="username">
 				</div>
 				<br />
 				<div class="input-group">
 					<span class="input-group-addon">密 码:</span>
-					<input type="password" class="form-control" >
+					<input type="password" name="pwd" class="form-control" >
 				</div>
 				<br />
 			</form>
-			<button type="button" class="btn btn-primary" >登录</button>
+			<button type="submit" class="btn btn-primary" >登录</button>
 		</div></center>
+<%
+   String errmsg=(String)session.getAttribute("errormsg");
+   if(errmsg!=null){
+     session.removeAttribute("errormsg");
+     out.println(errmsg);
+   }
+%>
 </body>
 </html>
