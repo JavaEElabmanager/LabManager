@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	    	<link rel="stylesheet" href="css/bootstrap.min.css">
+	    	<script src="js/jquery-1.11.0.min.js"></script>
+	    	<script src="js/bootstrap.min.js"></script>
+<title>managestudent</title>
+</head>
+<body>
+	<ul class="nav nav-tabs nav-justified">
+			<li><a href="manager.html">管理员界面</a></li>
+			<li><a href="managelab.html">实验室管理</a></li>
+			<li class="active"><a href="#">学生管理</a></li>
+			<li><a href="managerecord.html">统计分析</a></li>
+		</ul>
+		<center><div style="padding: 50px 100px 10px;width:100%">
+			<form class="bs-example bs-example-form" role="form" action="">
+				<div class="row">
+					<div class="col-lg-12">
+				<div class="input-group">
+					<span class="input-group-addon">学生关键字</span>
+					<input type="text" class="form-control" placeholder="请输入关键字...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">查询</button>
+					</span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" data-toggle="modal" data-target="#addStudent">添加学生</button>
+					</span>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+				</div>
+			</form>
+		</div></center>
+		<div style="padding: 50px 100px 10px;">
+			<table class="table table-hover">
+  				<thead>
+    				<tr>
+      					<th>学号</th>
+      					<th>学生姓名</th>
+      					<th>操作</th>
+    				</tr>
+  				</thead>
+  				
+  				<tbody>
+    				<tr>
+      					<td>example</td>
+      					<td></td>
+      					<td><a href="#"></a>删除</td>    					
+    				</tr>
+  				</tbody>
+			</table>
+		</div>
+		
+<div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加学生
+				</h4>
+			</div>
+			<form class="bs-example bs-example-form" role="form" action="" method="post">
+			<div class="modal-body">
+				<center><div style="width: 50%;margin-top: 50px;margin-bottom: 50px;">
+		
+				<div class="input-group">
+					<span class="input-group-addon">学生学号:</span>
+					<input type="text" class="form-control" name="studentid">
+				</div>
+				<br />
+				<div class="input-group">
+					<span class="input-group-addon">学生姓名:</span>
+					<input type="text" class="form-control" name="studentname">
+				</div>
+				<br />
+			
+		</div></center>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary" style="margin-right: 25px;">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</body>
+</html>
