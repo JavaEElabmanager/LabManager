@@ -11,20 +11,50 @@
 <body>
 	<img src="img/index.jpg" alt="index.jpg" style="width: 100%;"/>
 		<center><div style="padding: 100px 100px 10px;width: 50%">
-			<form class="bs-example bs-example-form" action="" method="post">
+			<form class="bs-example bs-example-form" action="">
 				<div class="input-group">
 					<span class="input-group-addon">用 户:</span>
-					<input type="text" class="form-control" name="username">
+					<input id="username" type="text" class="form-control">
 				</div>
 				<br />
 				<div class="input-group">
 					<span class="input-group-addon">密 码:</span>
-					<input type="password" name="pwd" class="form-control" >
+					<input id="password" type="password" class="form-control" >
 				</div>
 				<br />
-				<button type="submit" class="btn btn-primary" >登录</button>
+				<button type="button" class="btn btn-primary" onclick="clickbutton()">登录</button>
 			</form>
 			
 		</div></center>
+		<center><div id="error"></div></center>
 </body>
+<script type="text/javascript">
+		var form = FormData();
+		form.append("username",$("#username").val());
+		form.append("password",$("#password").val());
+		var xmlhttp;
+		function loadDoc(url,func){
+			if (window.XMLHttpRequest) {
+				xmlhttp=new XMLHttpRequest();
+			}
+			else {
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=func;
+			xmlhttp.open("GET",url,true);
+			xmlhttp.send(form);
+		}
+		function clickbutton(){
+			loadDoc("./test.txt",function(){
+				if (xmlhttp.readyState===4 && xmlhttp.status===200) {
+					if (xmlhttp.responseText==="true"){
+						window.location.href="manager.html";
+					}
+					else {
+						document.getElementById("error").innerHTML=xmlhttp.responseText;
+					}
+				}
+			})
+		}
+	</script>
 </html>
