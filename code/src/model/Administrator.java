@@ -4,6 +4,18 @@ public class Administrator {
 	private int adminId = 0;
 	private String adminPwd = "";
 	private String adminName = "";
+	
+	public Administrator() {
+		super();
+	}
+
+	public Administrator(int adminId, String adminPwd, String adminName) {
+		super();
+		this.adminId = adminId;
+		this.adminPwd = adminPwd;
+		this.adminName = adminName;
+	}
+	
 	public int getAdminId() {
 		return adminId;
 	}

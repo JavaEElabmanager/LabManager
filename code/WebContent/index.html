@@ -52,8 +52,8 @@
 			addToobj("username",username,obj);
 			addToobj("password",pwd,obj);
 			console.log(obj);
-			console.log(form);
-			loadDoc("http://localhost:8080/LabManager/hello/login",function(){
+			// console.log(form);
+			loadDoc("http://localhost:18080/LabManager/hello/login",function(){
 				if (xmlhttp.readyState===4 && xmlhttp.status===200) {
 					if (xmlhttp.responseText==="true"){
 						window.location.href="manager.html";

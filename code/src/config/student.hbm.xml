@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+    <class name="Student" table="student">
+        <id name="studentId" column="studentId" type="int">
+            <generator class="assigned" />
+        </id>
+        <property name="studentName" column="studentName" type="string"
+            not-null="true" />
+    </class>
+</hibernate-mapping>

@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Record {
@@ -9,6 +10,22 @@ public class Record {
 	private int computerPosition = 0;
 	private Date startTime=null;
 	private Date endTime=null;
+	
+	public Record() {
+		super();
+	}
+
+	public Record(int recordId, int studentId, int labId, int computerPosition, Timestamp startTime,
+			Timestamp endTime) {
+		super();
+		this.recordId = recordId;
+		this.studentId = studentId;
+		this.labId = labId;
+		this.computerPosition = computerPosition;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+	
 	public int getRecordId() {
 		return recordId;
 	}

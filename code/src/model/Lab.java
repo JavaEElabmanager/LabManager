@@ -4,6 +4,17 @@ public class Lab {
 	private int labId = 0;
 	private String labPosition = "";
 	private String labName = "";
+	
+	public Lab() {
+		super();
+	}
+	public Lab(int labId, String labPostion, String labName) {
+		super();
+		this.labId = labId;
+		this.labPosition = labPostion;
+		this.labName = labName;
+	}
+	
 	public int getLabId() {
 		return labId;
 	}

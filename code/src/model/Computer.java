@@ -5,6 +5,20 @@ public class Computer {
 	private int computerPosition = 0;
 	private int labId = 0;
 	private String computerIp = "";
+	
+	public Computer() {
+		super();
+	}
+
+
+	public Computer(int computerId, int computerPosition, int labId, String computerIp) {
+		super();
+		this.computerId = computerId;
+		this.computerPosition = computerPosition;
+		this.labId = labId;
+		this.computerIp = computerIp;
+	}
+	
 	public int getComputerId() {
 		return computerId;
 	}
