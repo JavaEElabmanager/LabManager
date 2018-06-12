@@ -7,11 +7,12 @@ import org.hibernate.Session;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.Lab;
 
 
-public class LabDao extends HibernateDaoSupport{
+public class LabDao extends HibernateDaoSupport{ 
 	public void insertLab(Lab Lab) {
         HibernateTemplate ht = this.getHibernateTemplate();
         ht.save(Lab);
@@ -24,7 +25,7 @@ public class LabDao extends HibernateDaoSupport{
 
 	}
 	public Lab searchLab(String Labname) {
-		String hql = "from Labr where LabName=? ";
+		String hql = "from Lab where LabName=? ";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Lab> ls_Lab = (List<Lab>) ht.find(hql,Labname);
 		return (null == ls_Lab || ls_Lab.isEmpty()) ? null : ls_Lab.get(0);

@@ -9,7 +9,9 @@
             not-null="true" />
         <property name="labId" column="labId" type="int"
             not-null="true" />
-            <property name="computerIp" column="computerIp" type="string"
+        <property name="computerIp" column="computerIp" type="string"
+            not-null="true" />
+        <property name="isUsing" column="isUsing" type="boolean"
             not-null="true" />
     </class>
 </hibernate-mapping>

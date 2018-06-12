@@ -17,8 +17,17 @@ public class ComputerService {
 	public void insertcomputer(Computer computer) {
 		computerdao.insertComputer(computer);
 	}
-	public Computer searchcomputer(int computerId) {
-		return computerdao.searchComputer(computerId);
+	public Computer searchComputerById(int computerId) {
+		return computerdao.searchComputerByPosition(computerId);
+	}
+	public Computer searchComputerByPosition(int computerPosition) {
+		return computerdao.searchComputerByPosition(computerPosition);
+	}
+	public List searchComputerByLabId(int LabId) {
+		return computerdao.searchComputerByLabId(LabId);
+	}
+	public List searchComputerByLabIdNotusing(int LabId) {
+		return computerdao.searchComputerByLabIdNotusing(LabId);
 	}
 	public void updatecomputer(Computer computer) {
 		computerdao.updateComputer(computer);

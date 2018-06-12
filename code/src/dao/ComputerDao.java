@@ -22,11 +22,29 @@ public class ComputerDao extends HibernateDaoSupport{
 		return ls_Computer;
 
 	}
-	public Computer searchComputer(int ComputerId) {
+	public Computer searchComputerById(int computerId) {
 		String hql = "from Computer where ComputerId=? ";
 		HibernateTemplate ht = this.getHibernateTemplate();
-		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,ComputerId);
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,computerId);
 		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
+	}
+	public Computer searchComputerByPosition(int computerPosition) {
+		String hql = "from Computer where ComputerPosition=? ";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,computerPosition);
+		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
+	}
+	public List searchComputerByLabIdNotusing(int LabId) {
+		String hql = "from Computer where LabId=? and isUsing = false";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,LabId);
+		return ls_Computer;
+	}
+	public List searchComputerByLabId(int LabId) {
+		String hql = "from Computer where LabId=?";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,LabId);
+		return ls_Computer;
 	}
 	public void updateComputer(Computer Computer) {
 		HibernateTemplate ht = this.getHibernateTemplate();

@@ -5,18 +5,20 @@ public class Computer {
 	private int computerPosition = 0;
 	private int labId = 0;
 	private String computerIp = "";
+	private boolean isUsing = false;
 	
 	public Computer() {
 		super();
 	}
 
 
-	public Computer(int computerId, int computerPosition, int labId, String computerIp) {
+	public Computer(int computerId, int computerPosition, int labId, String computerIp, boolean isUsing) {
 		super();
 		this.computerId = computerId;
 		this.computerPosition = computerPosition;
 		this.labId = labId;
 		this.computerIp = computerIp;
+		this.isUsing = isUsing;
 	}
 	
 	public int getComputerId() {
@@ -42,6 +44,16 @@ public class Computer {
 	}
 	public void setComputerIp(String computerIp) {
 		this.computerIp = computerIp;
+	}
+
+
+	public boolean getisUsing() {
+		return isUsing;
+	}
+
+
+	public void setisUsing(boolean isUsing) {
+		this.isUsing = isUsing;
 	}
 
 }

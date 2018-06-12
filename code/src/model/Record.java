@@ -10,13 +10,15 @@ public class Record {
 	private int computerPosition = 0;
 	private Date startTime=null;
 	private Date endTime=null;
+	private String studentName;
+	private String labName;
 	
 	public Record() {
 		super();
 	}
 
 	public Record(int recordId, int studentId, int labId, int computerPosition, Timestamp startTime,
-			Timestamp endTime) {
+			Timestamp endTime, String studentName, String labName) {
 		super();
 		this.recordId = recordId;
 		this.studentId = studentId;
@@ -24,6 +26,8 @@ public class Record {
 		this.computerPosition = computerPosition;
 		this.startTime = startTime;
 		this.endTime = endTime;
+		this.studentName = studentName;
+		this.labName = labName;
 	}
 	
 	public int getRecordId() {
@@ -61,6 +65,18 @@ public class Record {
 	}
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getLabName() {
+		return labName;
+	}
+	public void setLabName(String labName) {
+		this.labName = labName;
 	}
 
 }

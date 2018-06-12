@@ -9,11 +9,15 @@
             not-null="true" />
         <property name="labId" column="labId" type="int"
             not-null="true" />
+        <property name="studentName" column="studentName" type="string"
+            not-null="true" />
+        <property name="labName" column="labName" type="string"
+            not-null="true" />
         <property name="computerPosition" column="computerPosition" type="int"
             not-null="true" />
         <property name="startTime" column="startTime" type="timestamp"
             not-null="true" />
         <property name="endTime" column="endTime" type="timestamp"
-            not-null="true" />
+            not-null="false" />
     </class>
 </hibernate-mapping>

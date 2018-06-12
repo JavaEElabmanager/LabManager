@@ -16,8 +16,15 @@ public class RecordDao extends HibernateDaoSupport{
         HibernateTemplate ht = this.getHibernateTemplate();
         ht.save(Record);
     }
-	public List loadallRecord( ) {
+	public List loadallRecord() {
 		String hql = "from Record";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Record> ls_Record = (List<Record>) ht.find(hql);
+		return ls_Record;
+
+	}
+	public List loadRecordWithoutEnd() {
+		String hql = "from Record where endTime = null";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql);
 		return ls_Record;
@@ -28,6 +35,18 @@ public class RecordDao extends HibernateDaoSupport{
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql,RecordId);
 		return (null == ls_Record || ls_Record.isEmpty()) ? null : ls_Record.get(0);
+	}
+	public List searchRecordByStudentName(String StudentName) {
+		String hql = "from Record where StudentName=? ";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Record> ls_Record = (List<Record>) ht.find(hql,StudentName);
+		return ls_Record;
+	}
+	public List searchRecordByLabName(String LabName) {
+		String hql = "from Record where LabName=? ";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Record> ls_Record = (List<Record>) ht.find(hql,LabName);
+		return ls_Record;
 	}
 	public void updateRecord(Record Record) {
 		HibernateTemplate ht = this.getHibernateTemplate();

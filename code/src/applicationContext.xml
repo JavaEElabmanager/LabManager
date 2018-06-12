@@ -115,13 +115,13 @@
 <tx:advice id="txAdvice" transaction-manager="txManager">
     <tx:attributes>
         <tx:method name="get*" read-only="false"/><!-- 为了使用add方法把read-only="true"改了 -->
-        <tx:method name="*" propagation="REQUIRED"/>
+        <tx:method name="*"/>
     </tx:attributes>
 </tx:advice>
 
 <!-- 事务切面 -->
   <aop:config>
-    <aop:pointcut expression="execution(* service.*.*(..))" id="txMethod" />
+    <aop:pointcut expression="execution(* lab.service.*.*(..))" id="txMethod" />
     <aop:advisor advice-ref="txAdvice" pointcut-ref="txMethod"/>
 </aop:config>
 </beans>

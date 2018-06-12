@@ -22,6 +22,15 @@ public class RecordService {
 	public Record searchrecord(int recordId) {
 		return recorddao.searchRecord(recordId);
 	}
+	public List loadRecordWithoutEnd() {
+		return recorddao.loadRecordWithoutEnd();
+	}
+	public List searchRecordByStudentName(String StudentName) {
+		return recorddao.searchRecordByStudentName(StudentName);
+	}
+	public List searchRecordByLabName(String LabName) {
+		return recorddao.searchRecordByLabName(LabName);
+	}
 	public void updaterecord(Record record) {
 		recorddao.updateRecord(record);
 	}

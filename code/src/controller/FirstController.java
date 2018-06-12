@@ -28,24 +28,29 @@ import service.AdministratorService;
 
 
 @Controller
-@RequestMapping("/hello")
+//@RequestMapping("/hello")
 public class FirstController  {
-//	static ApplicationContext context = new ClassPathXmlApplicationContext(
-//            "lab/xml/applicationContext.xml");
-////    // 获取一个业务处理的类的对象
-//    static administratorservice as =(administratorservice) context.getBean("administratorservice");
 	AdministratorService as = (AdministratorService)Listener.applicationContext.getBean("administratorservice");
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/logintest", method = RequestMethod.POST)
 	public String handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		// TODO Auto-generated method stub
 //		ApplicationContext context = new ClassPathXmlApplicationContext(
 //	            "lab/xml/applicationContext.xml");
 //	    administratorservice as =(administratorservice) context.getBean("administratorservice");
+		
 		String username = req.getParameter("username");
-		System.out.println(getRequestJsonString(req));
 		String password = req.getParameter("password");
-		System.out.println(password);
+		
+		String JSONString = getRequestJsonString(req);
+		System.out.println(req);
+		System.out.println(JSONString);
+
+//		JSONObject jsonObject = new JSONObject(req);
+		
+//		String password = jsonObject.getString("password");
+		
+		System.out.println();
 		System.out.println(as);
 		Administrator admin = as.searchadministrator("admin");
 		System.out.println(admin.getAdminPwd());
