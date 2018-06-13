@@ -19,7 +19,6 @@ public class AdministratorService {
 		 administratordao.insertAdministrator(admin);
 	}
 	public Administrator searchadministrator(String adminname) {
-		System.out.println("inSearch");
 		return administratordao.searchAdministrator(adminname);
 	}
 	public void updateadministrator(Administrator admin) {

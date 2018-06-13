@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,13 @@ public class LoginController {
 		
 		Administrator admin = as.searchadministrator(username);
 		if(admin != null && password.equals(admin.getAdminPwd())) {
-			
+			HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            /*sessionÎ´Íê³É*/
 		}
 		else {
-//			respond.setHeader(arg0, arg1);
-			
+			respond.setStatus(221);
+//			System.out.println("else");
 		}
 	}
 }
