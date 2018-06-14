@@ -79,6 +79,22 @@ public class LabController {
 
 	}
 	
+	@RequestMapping(value = "/updateLab", method = RequestMethod.GET)
+	public void updateLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String labId = request.getParameter("labId");
+		String labName = request.getParameter("labName");
+		String labPosition = request.getParameter("labPosition");
+//		System.out.println(labName);
+		
+		
+		Lab lab = new Lab();
+		lab.setLabId(Integer.valueOf(labId));
+		lab.setLabName(labName);
+		lab.setLabPosition(labPosition);
+		
+		as.updatelab(lab);;
+
+	}
 
 	@RequestMapping(value = "/deleteLab", method = RequestMethod.GET)
 	public void deleteLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
