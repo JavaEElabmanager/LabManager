@@ -94,12 +94,12 @@ public class StudentController {
 	@RequestMapping(value = "/deleteStudent", method = RequestMethod.GET)
 	public void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String studentId = request.getParameter("studentId");
-		String studentName = request.getParameter("studentName");
+//		String studentName = request.getParameter("studentName");
 		//System.out.println(labName);
 		
 		Student student = new Student();
 		student.setStudentId(Integer.valueOf(studentId));
-		student.setStudentName(studentName);
+//		student.setStudentName(studentName);
 		
 		as.deletestudent(student);
 
