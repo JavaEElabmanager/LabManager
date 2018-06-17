@@ -90,6 +90,7 @@ public class Tools {
 	  public static void renderData(HttpServletResponse response, String data) {
 	    PrintWriter printWriter = null;
 	    try {
+	      response.setContentType("text/html;charset=UTF-8");
 	      printWriter = response.getWriter();
 	      printWriter.print(data);
 	    } catch (IOException ex) {

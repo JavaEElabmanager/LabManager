@@ -41,6 +41,7 @@ public class LabController {
 	@RequestMapping(value = "/searchLabByname", method = RequestMethod.GET)
 	public void searchLabByname(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String labName = request.getParameter("labName");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
 		Lab lab = as.searchlab(labName);
@@ -64,6 +65,8 @@ public class LabController {
 	public void addLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String labName = request.getParameter("labName");
 		String labPosition = request.getParameter("labPosition");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
+		labPosition = new String(labPosition.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
 		if (as.searchlab(labName) == null) {
@@ -84,6 +87,8 @@ public class LabController {
 		String labId = request.getParameter("labId");
 		String labName = request.getParameter("labName");
 		String labPosition = request.getParameter("labPosition");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
+		labPosition = new String(labPosition.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
 		

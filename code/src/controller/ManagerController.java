@@ -51,6 +51,7 @@ public class ManagerController {
 		String labName = request.getParameter("labName");
 		String computerPosition = request.getParameter("computerPosition");
 		String studentId = request.getParameter("studentId");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 		
 		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
 		computer.setisUsing(true);
@@ -90,6 +91,7 @@ public class ManagerController {
 	@RequestMapping(value = "/getComputersBylabId", method = RequestMethod.GET)
 	public void getComputers(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String labName = request.getParameter("labName");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 		List<Computer> computers = cs.searchComputerByLabIdNotusing(ls.searchlab(labName).getLabId());
 		
 		if (!computers.isEmpty()) {

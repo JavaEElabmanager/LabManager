@@ -43,7 +43,8 @@ public class RecordController {
 	@RequestMapping(value = "/searchRecordsByStudent", method = RequestMethod.GET)
 	public void searchRecordsByStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String studentName = request.getParameter("studentName");
-		
+		studentName = new String(studentName.getBytes("iso8859-1"),"UTF-8");
+
 		List<Record> records = as.searchRecordByStudentName(studentName);
 		
 		if (!records.isEmpty()) {
@@ -61,6 +62,7 @@ public class RecordController {
 	@RequestMapping(value = "/searchRecordsByLab", method = RequestMethod.GET)
 	public void searchRecordsByLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String labName = request.getParameter("labName");
+		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 		
 		List<Record> records = as.searchRecordByLabName(labName);
 		

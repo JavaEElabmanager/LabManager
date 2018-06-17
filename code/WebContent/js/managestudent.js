@@ -72,7 +72,7 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+","+obj.studentName+")'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj+")'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
 					table.appendChild(tr);
 				}
 				else{
@@ -102,7 +102,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+","+obj.studentName+")'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' id='updateStu'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
 						table.appendChild(tr);
 					}
 				}
@@ -141,7 +141,9 @@
 			}
 		});
 	}
-	function updatebutton(id,name){
+	function updatebutton(obj){
+		var id = obj.studentId;
+		var name = obj.studentName;
 		$("#studentid2").val(id);
 		$("#studentname2").val(name);
 	}

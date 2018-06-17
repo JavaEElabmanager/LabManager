@@ -65,7 +65,8 @@ public class StudentController {
 	public void addStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String studentId = request.getParameter("studentId");
 		String studentName = request.getParameter("studentName");
-//		System.out.println(labName);
+		studentName = new String(studentName.getBytes("iso8859-1"),"UTF-8");
+		System.out.println(studentName);
 		
 		if ( as.searchstudent(Integer.valueOf(studentId)) == null ) {
 			Student student = new Student();
@@ -83,6 +84,7 @@ public class StudentController {
 	public void updateStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String studentId = request.getParameter("studentId");
 		String studentName = request.getParameter("studentName");
+		studentName = new String(studentName.getBytes("iso8859-1"),"UTF-8");
 		//System.out.println(labName);
 		
 		Student student = new Student();
