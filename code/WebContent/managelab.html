@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	    	<link rel="stylesheet" href="css/bootstrap.min.css">
-	    	<script src="js/jquery-1.11.0.min.js"></script>
-	    	<script src="js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/myFunction.js" type="text/javascript" charset="utf-8"></script>
 <title>managelab</title>
 </head>
 <body>
@@ -21,9 +22,9 @@
 					<div class="col-lg-12">
 				<div class="input-group">
 					<span class="input-group-addon">实验室关键字</span>
-					<input type="text" class="form-control" placeholder="请输入关键字...">
+					<input id="keywords" type="text" class="form-control" placeholder="请输入关键字...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">查询</button>
+						<button onclick="searchlab()" class="btn btn-default" type="button">查询</button>
 					</span>
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button" data-toggle="modal" data-target="#addLab">添加实验室</button>
@@ -43,13 +44,8 @@
       					<th>操作</th>
     				</tr>
   				</thead>
-  				<tbody>
-    				<tr>
-      					<td>example</td>
-      					<td></td>
-      					<td></td>
-      					<td><a href="#"></a>删除</td>    					
-    				</tr>
+  				<tbody id="lab">
+    				
   				</tbody>
 			</table>
 		</div>
@@ -71,24 +67,67 @@
 		
 				<div class="input-group">
 					<span class="input-group-addon">实验室名称:</span>
-					<input type="text" class="form-control" name="labname">
+					<input type="text" class="form-control" id="labname">
 				</div>
 				<br />
 				<div class="input-group">
 					<span class="input-group-addon">实验室位置:</span>
-					<input type="text" class="form-control" name="labposition">
+					<input type="text" class="form-control" id="labposition">
 				</div>
 				<br />
 			
+			<div id="error">
+				
+			</div>
 		</div></center>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary" style="margin-right: 25px;">确定</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button onclick="addlab()" type="button" class="btn btn-primary" style="margin-right: 25px;">确定</button>
+				<button onclick="location.reload()" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="updateLab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改实验室信息
+				</h4>
+			</div>
+			<form class="bs-example bs-example-form" role="form" action="" method="post">
+			<div class="modal-body">
+				<center><div style="width: 50%;margin-top: 50px;margin-bottom: 50px;">
+		
+				<div class="input-group">
+					<span class="input-group-addon">实验室名称:</span>
+					<input type="text" class="form-control" id="labname2">
+				</div>
+				<br />
+				<div class="input-group">
+					<span class="input-group-addon">实验室位置:</span>
+					<input type="text" class="form-control" id="labposition2">
+				</div>
+				<br />
+				<div id="error2">
+					
+				</div>
+		</div></center>
+			</div>
+			<div class="modal-footer">
+				<button onclick="updatelab()" type="button" class="btn btn-primary" style="margin-right: 25px;">确定</button>
+				<button onclick="location.reload()" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 			</div>
 			</form>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
 </body>
+<script src="js/managelab.js" type="text/javascript" charset="utf-8"></script>
 </html>

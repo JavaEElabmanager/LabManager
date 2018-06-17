@@ -99,15 +99,15 @@ public class LabController {
 	@RequestMapping(value = "/deleteLab", method = RequestMethod.GET)
 	public void deleteLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String labId = request.getParameter("labId");
-		String labName = request.getParameter("labName");
-		String labPosition = request.getParameter("labPosition");
+//		String labName = request.getParameter("labName");
+//		String labPosition = request.getParameter("labPosition");
 //		System.out.println(labName);
 		
 		
 		Lab lab = new Lab();
 		lab.setLabId(Integer.valueOf(labId));
-		lab.setLabName(labName);
-		lab.setLabPosition(labPosition);
+//		lab.setLabName(labName);
+//		lab.setLabPosition(labPosition);
 		
 		as.deletelab(lab);
 
