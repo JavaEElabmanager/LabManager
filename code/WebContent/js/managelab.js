@@ -69,7 +69,8 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+","+obj.labName+","+obj.labPosition+")'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+
+					obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+","+obj.labName+","+obj.labPosition+")'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
 					table.appendChild(tr);
 				}
 				else{
@@ -99,7 +100,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+","+obj.labName+","+obj.labPosition+")'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+","+obj.labName+","+obj.labPosition+")'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
 						table.appendChild(tr);
 					}
 				}
@@ -183,3 +184,7 @@
 			}
 		});
 	}
+function sendlabid(id){
+	url="managecomputer.html?labid="+id;
+	window.location.href=url;
+}

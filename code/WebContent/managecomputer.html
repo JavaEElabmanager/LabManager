@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/myFunction.js" type="text/javascript" charset="utf-8"></script>
+<title>managecomputer</title>
+</head>
+<body>
+	<ul class="nav nav-tabs nav-justified">
+			<li><a href="managelab.html">实验室管理</a></li>
+			<li id="title" class="active"><a href="#">计算机管理</a></li>
+		</ul>
+		<center><div style="padding: 50px 100px 10px;width:100%">
+			<form class="bs-example bs-example-form" role="form" action="">
+				<div class="row">
+					<div class="col-lg-12">
+				<div class="input-group">
+					<span class="input-group-addon">计算机关键字</span>
+					<input id="keywords" type="text" class="form-control" placeholder="请输入关键字...">
+					<span class="input-group-btn">
+						<button onclick="searchcomputer()" class="btn btn-default" type="button">查询</button>
+					</span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" data-toggle="modal" data-target="#addComputer">添加计算机</button>
+					</span>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+				</div>
+			</form>
+		</div></center>
+		<div style="padding: 50px 100px 10px;">
+			<table class="table table-hover">
+  				<thead>
+    				<tr>
+      					<th>计算机编号</th>
+      					<th>计算机机号</th>
+      					<th>计算机IP</th>
+      					<th>是否正在使用</th>
+      					<th>操作</th>
+    				</tr>
+  				</thead>
+  				<tbody id="computer">
+    				
+  				</tbody>
+			</table>
+		</div>
+		
+<div class="modal fade" id="addComputer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加计算机
+				</h4>
+			</div>
+			<form class="bs-example bs-example-form" role="form" action="" method="post">
+			<div class="modal-body">
+				<center><div style="width: 50%;margin-top: 50px;margin-bottom: 50px;">
+		
+				<div class="input-group">
+					<span class="input-group-addon">计算机机号:</span>
+					<input type="text" class="form-control" id="computerposition">
+				</div>
+				<br />
+				<div class="input-group">
+					<span class="input-group-addon">计算机IP:</span>
+					<input type="text" class="form-control" id="computerip">
+				</div>
+				<br />
+			
+			<div id="error">
+				
+			</div>
+		</div></center>
+			</div>
+			<div class="modal-footer">
+				<button onclick="addcomputer()" type="button" class="btn btn-primary" style="margin-right: 25px;">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="updateComputer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					修改计算机信息
+				</h4>
+			</div>
+			<form class="bs-example bs-example-form" role="form" action="" method="post">
+			<div class="modal-body">
+				<center><div style="width: 50%;margin-top: 50px;margin-bottom: 50px;">
+		
+				<div class="input-group">
+					<span class="input-group-addon">实验室编号:</span>
+					<input type="text" class="form-control" id="labid2">
+				</div>
+				<br />
+				<div class="input-group">
+					<span class="input-group-addon">计算机机号:</span>
+					<input type="text" class="form-control" id="computerposition2">
+				</div>
+				<br />
+				<div class="input-group">
+					<span class="input-group-addon">计算机IP:</span>
+					<input type="text" class="form-control" id="computerip2">
+				</div>
+				<br />
+				<div id="error2">
+					
+				</div>
+		</div></center>
+			</div>
+			<div class="modal-footer">
+				<button onclick="updatecomputer()" type="button" class="btn btn-primary" style="margin-right: 25px;">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			</div>
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</body>
+<script src="js/managecomputer.js" type="text/javascript" charset="utf-8"></script>
+</html>
