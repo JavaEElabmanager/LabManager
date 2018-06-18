@@ -78,6 +78,8 @@ public class ManagerController {
 		
 		Record record = rs.searchrecord(Integer.valueOf(recordId));
 		record.setEndTime(new Timestamp(System.currentTimeMillis()));
+		double duration = (record.getEndTime().getTime() - record.getStartTime().getTime())/60.0;
+		record.setDuration((double)Math.round(duration*10)/10);
 //		record.setStudentId(Integer.valueOf(studentId));
 //		record.setLabId(ls.searchlab(labName).getLabId());
 //		record.setComputerPosition(Integer.valueOf(computerPosition));

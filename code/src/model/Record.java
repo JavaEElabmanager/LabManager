@@ -12,6 +12,7 @@ public class Record {
 	private Date endTime=null;
 	private String studentName;
 	private String labName;
+	private double duration;
 	
 	public Record() {
 		super();
@@ -77,6 +78,14 @@ public class Record {
 	}
 	public void setLabName(String labName) {
 		this.labName = labName;
+	}
+
+	public double getDuration() {
+		return duration;
+	}
+
+	public void setDuration(double duration) {
+		this.duration = duration;
 	}
 
 }
