@@ -44,11 +44,11 @@ public class LabController {
 		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
-		Lab lab = as.searchlab(labName);
+		List<Lab> labs = as.searchLabByName(labName);
 		
-		if (lab != null) {
+		if (!labs.isEmpty()) {
 			Gson gson = new Gson();
-			String labJson = gson.toJson(lab);
+			String labJson = gson.toJson(labs);
 
 //			System.out.println(labJson);
 			

@@ -24,6 +24,13 @@ public class LabDao extends HibernateDaoSupport{
 		return ls_Lab;
 
 	}
+	public List searchLabByName(String Labname) {
+		String hql = "from Lab where LabName like ?";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Lab> ls_Lab = (List<Lab>) ht.find(hql, "%" + Labname + "%");
+		return ls_Lab;
+
+	}
 	public Lab searchLab(String Labname) {
 		String hql = "from Lab where LabName=? ";
 		HibernateTemplate ht = this.getHibernateTemplate();

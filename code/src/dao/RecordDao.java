@@ -17,14 +17,14 @@ public class RecordDao extends HibernateDaoSupport{
         ht.save(Record);
     }
 	public List loadallRecord() {
-		String hql = "from Record";
+		String hql = "from Record order by startTime desc";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql);
 		return ls_Record;
 
 	}
 	public List loadRecordWithoutEnd() {
-		String hql = "from Record where endTime = null";
+		String hql = "from Record where endTime = null order by startTime asc";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql);
 		return ls_Record;
@@ -37,13 +37,13 @@ public class RecordDao extends HibernateDaoSupport{
 		return (null == ls_Record || ls_Record.isEmpty()) ? null : ls_Record.get(0);
 	}
 	public List searchRecordByStudentName(String StudentName) {
-		String hql = "from Record where StudentName=? ";
+		String hql = "from Record where StudentName=? order by startTime desc";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql,StudentName);
 		return ls_Record;
 	}
 	public List searchRecordByLabName(String LabName) {
-		String hql = "from Record where LabName=? ";
+		String hql = "from Record where LabName=? order by startTime desc";
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Record> ls_Record = (List<Record>) ht.find(hql,LabName);
 		return ls_Record;

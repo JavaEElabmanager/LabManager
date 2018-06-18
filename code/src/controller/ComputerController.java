@@ -62,13 +62,13 @@ public class ComputerController {
 	@RequestMapping(value = "/deleteComputer", method = RequestMethod.GET)
 	public void deleteComputer(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		String labId = request.getParameter("labId");
-		String computerPosition = request.getParameter("computerPosition");
+		String computerId = request.getParameter("computerId");
 //		String computerIp = request.getParameter("computerIp");
 		
 		
 		Computer computer = new Computer();
 //		computer.setComputerIp(computerIp);
-		computer.setComputerPosition(Integer.valueOf(computerPosition));
+		computer.setComputerId(Integer.valueOf(computerId));
 //		computer.setLabId(Integer.valueOf(labId));
 //		computer.setisUsing(false);
 
