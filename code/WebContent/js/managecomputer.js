@@ -80,7 +80,7 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+","+obj.labName+","+obj.labPosition+")'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+","+obj.computerIp+")'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
 					table.appendChild(tr);
 				}
 				else{

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" href="css/bootstrap.min.css">
-	    <script src="js/jquery-1.11.0.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/myFunction.js" type="text/javascript" charset="utf-8"></script>
 <title>managerecord</title>
 </head>
 <body>
@@ -21,14 +22,14 @@
 					<div class="col-lg-12">
 				<div class="input-group">
 					<span class="input-group-btn">
-						<select class="btn btn-default" id="">
+						<select class="btn btn-default" id="myselect">
 							<option value ="student">学生</option>
   							<option value ="lab">实验室</option>
 						</select>
 					</span>
-					<input type="text" class="form-control" placeholder="请输入关键字...">
+					<input id="keywords" type="text" class="form-control" placeholder="请输入关键字...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">查询</button>
+						<button onclick="search()" class="btn btn-default" type="button">查询</button>
 					</span>
 				</div><!-- /input-group -->
 			</div><!-- /.col-lg-6 -->
@@ -47,17 +48,11 @@
       					<th>结束时间</th>
     				</tr>
   				</thead>
-  				<tbody>
-    				<tr>
-      					<td>example</td>
-      					<td></td>
-      					<td></td>
-      					<td></td>
-      					<td></td>
-      					<td></td>
-    				</tr>
+  				<tbody id="record">
+    				
   				</tbody>
 			</table>
 		</div>
 </body>
+<script src="js/managerecord.js" type="text/javascript"></script>
 </html>
