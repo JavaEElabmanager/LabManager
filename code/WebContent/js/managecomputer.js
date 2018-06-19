@@ -80,7 +80,7 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+","+obj.computerIp+")'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
 					table.appendChild(tr);
 				}
 				else{
@@ -113,7 +113,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+","+obj.computerIp+")'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
 						table.appendChild(tr);
 					}
 				}
@@ -153,7 +153,7 @@
 			}
 		});
 	}
-	function updatebutton(id,postition,ip){
+	function updatebutton(id,position,ip){
 		computerid=id;
 		$("#labid2").val(labid);
 		$("#computerposition2").val(position);

@@ -76,6 +76,7 @@ public class StudentController {
 			as.insertstudent(student);
 		}
 		else {
+			response.setStatus(221);
 //			response.setHeader(arg0, arg1);
 		}
 

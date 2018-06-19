@@ -77,7 +77,7 @@ public class LabController {
 			as.insertlab(lab);
 		}
 		else {
-//			response.setHeader(arg0, arg1);
+			response.setStatus(221);;
 		}
 
 	}

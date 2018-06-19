@@ -20,6 +20,6 @@
         <property name="endTime" column="endTime" type="timestamp"
             not-null="false" />
         <property name="duration" column="duration" type="double"
-            not-null="false" />  
+            not-null="true" />  
     </class>
 </hibernate-mapping>

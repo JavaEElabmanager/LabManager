@@ -52,7 +52,7 @@ public class ManagerController {
 		String computerPosition = request.getParameter("computerPosition");
 		String studentId = request.getParameter("studentId");
 		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
-		
+		System.out.println("stuId" + studentId);
 		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
 		computer.setisUsing(true);
 		cs.updatecomputer(computer);
@@ -73,21 +73,25 @@ public class ManagerController {
 	@RequestMapping(value = "/endRecord", method = RequestMethod.GET)
 	public void endRecord(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String recordId = request.getParameter("recordId");
-//		String computerPosition = request.getParameter("computerPosition");
-//		String studentId = request.getParameter("studentId");
 		
 		Record record = rs.searchrecord(Integer.valueOf(recordId));
 		record.setEndTime(new Timestamp(System.currentTimeMillis()));
-		double duration = (record.getEndTime().getTime() - record.getStartTime().getTime())/60.0;
+		double duration = (record.getEndTime().getTime() - record.getStartTime().getTime())/1000/60.0;
 		record.setDuration((double)Math.round(duration*10)/10);
+		rs.updaterecord(record);
+		
+		int computerPosition = record.getComputerPosition();
+		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
+		computer.setisUsing(false);
+		cs.updatecomputer(computer);
+		
 //		record.setStudentId(Integer.valueOf(studentId));
 //		record.setLabId(ls.searchlab(labName).getLabId());
 //		record.setComputerPosition(Integer.valueOf(computerPosition));
 //		record.setStartTime(new Timestamp(System.currentTimeMillis()));
 //		record.setStudentName(ss.searchstudent(Integer.valueOf(studentId)).getStudentName());
 //		record.setLabName(labName);
-		
-		rs.updaterecord(record);
+
 	}
 	
 	@RequestMapping(value = "/getComputersBylabId", method = RequestMethod.GET)
@@ -95,6 +99,8 @@ public class ManagerController {
 		String labName = request.getParameter("labName");
 		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
 		List<Computer> computers = cs.searchComputerByLabIdNotusing(ls.searchlab(labName).getLabId());
+		System.out.println(labName);
+		System.out.println(ls.searchlab(labName).getLabId());
 		
 		if (!computers.isEmpty()) {
 			Gson gson = new Gson();

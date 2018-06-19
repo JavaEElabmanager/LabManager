@@ -54,6 +54,7 @@ public class ComputerController {
 			cs.insertcomputer(computer);
 		}
 		else {
+			response.setStatus(221);
 //			response.setHeader(arg0, arg1);
 		}
 		

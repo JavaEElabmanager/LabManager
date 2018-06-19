@@ -12,14 +12,14 @@ public class Record {
 	private Date endTime=null;
 	private String studentName;
 	private String labName;
-	private double duration;
+	private double duration = 0.0;
 	
 	public Record() {
 		super();
 	}
 
 	public Record(int recordId, int studentId, int labId, int computerPosition, Timestamp startTime,
-			Timestamp endTime, String studentName, String labName) {
+			Timestamp endTime, String studentName, String labName, double duration) {
 		super();
 		this.recordId = recordId;
 		this.studentId = studentId;
@@ -29,6 +29,7 @@ public class Record {
 		this.endTime = endTime;
 		this.studentName = studentName;
 		this.labName = labName;
+		this.duration = duration;
 	}
 	
 	public int getRecordId() {
