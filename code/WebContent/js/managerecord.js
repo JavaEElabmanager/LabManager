@@ -26,11 +26,15 @@ window.onload=allrecord();
 				console.log(xhr.status);
 				if(xhr.status == 200) {
 					table.innerHTML="";
-					var obj=JSON.parse(xhr.responseText);
-					console.log(obj);
-					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.recordId+"</td><td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td>";
-					table.appendChild(tr);
+					console.log(xhr.responseText);
+					var arr=eval(xhr.responseText);
+					console.log(arr);
+					for (let i=0; i<arr.length; i++) {
+						var obj=arr[i];
+						var tr=document.createElement("tr");
+						tr.innerHTML="<td>"+obj.recordId+"</td><td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td>";
+						table.appendChild(tr);
+					}
 				}
 				else{
 					console.log(xhr.status);
@@ -63,11 +67,15 @@ window.onload=allrecord();
 				console.log(xhr.status);
 				if(xhr.status == 200) {
 					table.innerHTML="";
-					var obj=JSON.parse(xhr.responseText);
-					console.log(obj);
-					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.recordId+"</td><td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td>";
-					table.appendChild(tr);
+					console.log(xhr.responseText);
+					var arr=eval(xhr.responseText);
+					console.log(arr);
+					for (let i=0; i<arr.length; i++) {
+						var obj=arr[i];
+						var tr=document.createElement("tr");
+						tr.innerHTML="<td>"+obj.recordId+"</td><td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td>";
+						table.appendChild(tr);
+					}
 				}
 				else{
 					console.log(xhr.status);

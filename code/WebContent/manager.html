@@ -22,22 +22,22 @@
 				<div class="input-group">
 					<span class="input-group-addon" >实验室名称</span>
 					<span class="input-group-btn" >
-						<select class="btn btn-default" id="" >
+						<select class="btn btn-default" id="labname" >
 							<option value ="">实验室名称</option>
   							<option value ="">test</option>
 						</select>
 					</span>
 					<span class="input-group-addon" >机号</span>
 					<span class="input-group-btn" >
-						<select class="btn btn-default" id="" >
+						<select class="btn btn-default" id="computerposition" >
 							<option value ="">机号</option>
   							<option value ="">test</option>
 						</select>
 					</span>
 					<span class="input-group-addon">学生学号</span>
-					<input type="text" class="form-control" placeholder="请输入学生学号...">
+					<input id="studentid" type="text" class="form-control" placeholder="请输入学生学号...">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">开始上机</button>
+						<button onclick="startcomputer()" class="btn btn-default" type="button">开始上机</button>
 					</span>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
       					<th>操作</th>
     				</tr>
   				</thead>
-  				<tbody>
+  				<tbody id="list">
     				<tr>
       					<td>example</td>
       					<td></td>
