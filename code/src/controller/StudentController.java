@@ -93,6 +93,7 @@ public class StudentController {
 		student.setStudentName(studentName);	
 		as.updatestudent(student);
 
+
 	}
 	@RequestMapping(value = "/deleteStudent", method = RequestMethod.GET)
 	public void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {

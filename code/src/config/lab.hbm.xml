@@ -6,8 +6,8 @@
             <generator class="assigned" />
         </id>
         <property name="labPosition" column="labPosition" type="string"
-            not-null="true" />
+            not-null="true" unique="true"/>
         <property name="labName" column="labName" type="string"
-            not-null="true" />
+            not-null="true" unique="true"/>
     </class>
 </hibernate-mapping>

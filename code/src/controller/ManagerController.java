@@ -76,7 +76,7 @@ public class ManagerController {
 		
 		Record record = rs.searchrecord(Integer.valueOf(recordId));
 		record.setEndTime(new Timestamp(System.currentTimeMillis()));
-		double duration = (record.getEndTime().getTime() - record.getStartTime().getTime())/1000/60.0;
+		double duration = (record.getEndTime().getTime() - record.getStartTime().getTime())/1000.0;
 		record.setDuration((double)Math.round(duration*10)/10);
 		rs.updaterecord(record);
 		

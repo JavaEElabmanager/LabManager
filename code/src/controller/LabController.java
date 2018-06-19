@@ -69,15 +69,21 @@ public class LabController {
 		labPosition = new String(labPosition.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
-		if (as.searchlab(labName) == null) {
-			Lab lab = new Lab();
-			lab.setLabName(labName);
-			lab.setLabPosition(labPosition);
+		
+		try {
+//			if (as.searchlab(labName) == null) {
+				Lab lab = new Lab();
+				lab.setLabName(labName);
+				lab.setLabPosition(labPosition);
 			
-			as.insertlab(lab);
-		}
-		else {
-			response.setStatus(221);;
+				as.insertlab(lab);
+//			}
+//			else {
+//				response.setStatus(221);
+//			}
+		
+		}catch (Exception e) {
+			response.setStatus(221);
 		}
 
 	}
@@ -91,14 +97,16 @@ public class LabController {
 		labPosition = new String(labPosition.getBytes("iso8859-1"),"UTF-8");
 //		System.out.println(labName);
 		
-		
-		Lab lab = new Lab();
-		lab.setLabId(Integer.valueOf(labId));
-		lab.setLabName(labName);
-		lab.setLabPosition(labPosition);
-		
-		as.updatelab(lab);;
-
+		try {
+			Lab lab = new Lab();
+			lab.setLabId(Integer.valueOf(labId));
+			lab.setLabName(labName);
+			lab.setLabPosition(labPosition);
+			
+			as.updatelab(lab);;
+		}catch (Exception e) {
+			response.setStatus(222);
+		}
 	}
 
 	@RequestMapping(value = "/deleteLab", method = RequestMethod.GET)

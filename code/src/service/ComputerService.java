@@ -23,6 +23,9 @@ public class ComputerService {
 	public Computer searchComputerByPosition(int computerPosition) {
 		return computerdao.searchComputerByPosition(computerPosition);
 	}
+	public Computer searchComputerByPositionAndLabId(int computerPosition, int labId, String ip) {
+		return computerdao.searchComputerByPositionAndLabId(computerPosition, labId, ip);
+	}
 	public List searchComputerByLabId(int LabId) {
 		return computerdao.searchComputerByLabId(LabId);
 	}

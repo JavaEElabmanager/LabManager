@@ -44,7 +44,7 @@ public class ComputerController {
 		String computerIp = request.getParameter("computerIp");
 		
 		
-		if (cs.searchComputerByPosition(Integer.valueOf(computerPosition)) == null) {
+		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
 			Computer computer = new Computer();
 			computer.setComputerIp(computerIp);
 			computer.setComputerPosition(Integer.valueOf(computerPosition));
@@ -83,13 +83,18 @@ public class ComputerController {
 		String computerPosition = request.getParameter("computerPosition");
 		String computerIp = request.getParameter("computerIp");
 		
-		
-		Computer computer = cs.searchComputerById(Integer.valueOf(computerId));
-		computer.setComputerIp(computerIp);
-		computer.setComputerPosition(Integer.valueOf(computerPosition));
-		computer.setLabId(Integer.valueOf(labId));
-//		computer.setisUsing(false);
+		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
+			Computer computer = cs.searchComputerById(Integer.valueOf(computerId));
+			computer.setComputerIp(computerIp);
+			computer.setComputerPosition(Integer.valueOf(computerPosition));
+			computer.setLabId(Integer.valueOf(labId));
+//			computer.setisUsing(false);
 
-		cs.updatecomputer(computer);
+			cs.updatecomputer(computer);
+		}
+		else {
+			response.setStatus(222);
+		}
+
 	}
 }

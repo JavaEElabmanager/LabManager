@@ -34,6 +34,12 @@ public class ComputerDao extends HibernateDaoSupport{
 		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,computerPosition);
 		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
 	}
+	public Computer searchComputerByPositionAndLabId(int computerPosition, int labId, String ip) {
+		String hql = "from Computer where labId=? and (ComputerPosition=? or computerIp=?)";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,labId,computerPosition,ip);
+		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
+	}
 	public List searchComputerByLabIdNotusing(int LabId) {
 		String hql = "from Computer where LabId=? and isUsing = false";
 		HibernateTemplate ht = this.getHibernateTemplate();
