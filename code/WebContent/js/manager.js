@@ -72,6 +72,7 @@ function loadlab(){//加载第一个选项列表
 	});
 }
 function loadcomputer(name){//加载第二个选项列表
+	selectcomputer.innerHTML="";
 	labname=name;
 	$.ajax({
 		url:"http://localhost:8080/LabManager/getComputersBylabId",

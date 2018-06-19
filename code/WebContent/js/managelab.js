@@ -33,6 +33,9 @@
 				if(xhr.status == 200) {
 					location.reload();
 				}
+				else if(xhr.status == 221) {
+					document.getElementById("error").innerHTML="实验室名称或位置已存在";
+				}
 				else{
 					window.location.href="#addLab";
 					document.getElementById("error").innerHTML=xhr.status;

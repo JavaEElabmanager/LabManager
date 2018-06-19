@@ -36,6 +36,10 @@
 				if(xhr.status == 200) {
 					location.reload();
 				}
+				else if(xhr.status == 221) {
+					document.getElementById("error").innerHTML="该学号已存在";
+					return false;
+				}
 				else{
 					window.location.href="#addStudent";
 					document.getElementById("error").innerHTML=xhr.status;
@@ -151,7 +155,7 @@
 				document.getElementById("error2").innerHTML="学生学号不能为空";
 				return false;
 			}
-		if(!checknumber(studentname)){
+		if(!checknumber(studentid)){
 			document.getElementById("error2").innerHTML="学生学号必须为数字";
 			return false;
 		}

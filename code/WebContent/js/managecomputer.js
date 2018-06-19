@@ -43,6 +43,9 @@
 					var url="managecomputer.html?labid="+labid;
 					window.location.href=url;
 				}
+				else if(xhr.status == 221) {
+					document.getElementById("error").innerHTML="该计算机已存在";
+				}
 				else{
 					window.location.href="#addComputer";
 					document.getElementById("error").innerHTML=xhr.status;
@@ -184,9 +187,8 @@
 			return false;
 		}
 		$.ajax({
-			url:"http://localhost:8080/LabManager/updateLab",
-			data: {
-				computerId: computerid,
+			url:"http://localhost:8080/LabManager/updateComputer",
+			data: {uterId: computerid,
 				labId: labid2,
 				computerPosition: computerposition,
 				computerIp: computerip
