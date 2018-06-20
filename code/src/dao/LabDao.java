@@ -37,6 +37,12 @@ public class LabDao extends HibernateDaoSupport{
 		List<Lab> ls_Lab = (List<Lab>) ht.find(hql,Labname);
 		return (null == ls_Lab || ls_Lab.isEmpty()) ? null : ls_Lab.get(0);
 	}
+	public Lab searchLabByPosintion(String Position) {
+		String hql = "from Lab where labPosition=? ";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Lab> ls_Lab = (List<Lab>) ht.find(hql,Position);
+		return (null == ls_Lab || ls_Lab.isEmpty()) ? null : ls_Lab.get(0);
+	}
 	public void updateLab(Lab Lab) {
 		HibernateTemplate ht = this.getHibernateTemplate();
 		ht.update(Lab);

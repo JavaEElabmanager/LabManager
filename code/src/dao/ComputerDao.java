@@ -20,7 +20,6 @@ public class ComputerDao extends HibernateDaoSupport{
 		HibernateTemplate ht = this.getHibernateTemplate();
 		List<Computer> ls_Computer = (List<Computer>) ht.find(hql);
 		return ls_Computer;
-
 	}
 	public Computer searchComputerById(int computerId) {
 		String hql = "from Computer where ComputerId=? ";
@@ -34,10 +33,16 @@ public class ComputerDao extends HibernateDaoSupport{
 		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,computerPosition);
 		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
 	}
-	public Computer searchComputerByPositionAndLabId(int computerPosition, int labId, String ip) {
-		String hql = "from Computer where labId=? and (ComputerPosition=? or computerIp=?)";
+	public Computer searchComputerByPosition(int labId, int computerPosition) {
+		String hql = "from Computer where labId=? and ComputerPosition=?";
 		HibernateTemplate ht = this.getHibernateTemplate();
-		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,labId,computerPosition,ip);
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,labId,computerPosition);
+		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
+	}
+	public Computer searchComputerByIp(String ip) {
+		String hql = "from Computer where computerIp=?";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Computer> ls_Computer = (List<Computer>) ht.find(hql,ip);
 		return (null == ls_Computer || ls_Computer.isEmpty()) ? null : ls_Computer.get(0);
 	}
 	public List searchComputerByLabIdNotusing(int LabId) {

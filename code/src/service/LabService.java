@@ -25,6 +25,9 @@ public class LabService {
 	public List searchLabByName(String Labname) {
 		return labdao.searchLabByName(Labname);
 	}
+	public Lab searchLabByPosintion(String Position) {
+		return labdao.searchLabByPosintion(Position);
+	}
 	public void updatelab(Lab lab) {
 		labdao.updateLab(lab);
 	}

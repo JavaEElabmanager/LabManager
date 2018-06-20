@@ -70,21 +70,21 @@ public class LabController {
 //		System.out.println(labName);
 		
 		
-		try {
-//			if (as.searchlab(labName) == null) {
-				Lab lab = new Lab();
-				lab.setLabName(labName);
-				lab.setLabPosition(labPosition);
-			
-				as.insertlab(lab);
-//			}
-//			else {
-//				response.setStatus(221);
-//			}
-		
-		}catch (Exception e) {
-			response.setStatus(221);
-		}
+			if (as.searchlab(labName) == null) {
+				if (as.searchLabByPosintion(labPosition) == null) {
+					Lab lab = new Lab();
+					lab.setLabName(labName);
+					lab.setLabPosition(labPosition);
+					as.insertlab(lab);
+				}
+				else {
+					response.setStatus(222);
+				}	
+			}
+			else {
+				response.setStatus(221);
+			}
+
 
 	}
 	
@@ -105,7 +105,7 @@ public class LabController {
 			
 			as.updatelab(lab);;
 		}catch (Exception e) {
-			response.setStatus(222);
+			response.setStatus(223);
 		}
 	}
 

@@ -18,13 +18,16 @@ public class ComputerService {
 		computerdao.insertComputer(computer);
 	}
 	public Computer searchComputerById(int computerId) {
-		return computerdao.searchComputerByPosition(computerId);
+		return computerdao.searchComputerById(computerId);
 	}
 	public Computer searchComputerByPosition(int computerPosition) {
 		return computerdao.searchComputerByPosition(computerPosition);
 	}
-	public Computer searchComputerByPositionAndLabId(int computerPosition, int labId, String ip) {
-		return computerdao.searchComputerByPositionAndLabId(computerPosition, labId, ip);
+	public Computer searchComputerByPosition(int labId, int computerPosition) {
+		return computerdao.searchComputerByPosition(labId, computerPosition);
+	}
+	public Computer searchComputerByIp(String ip) {
+		return computerdao.searchComputerByIp(ip);
 	}
 	public List searchComputerByLabId(int LabId) {
 		return computerdao.searchComputerByLabId(LabId);

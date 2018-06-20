@@ -44,14 +44,19 @@ public class ComputerController {
 		String computerIp = request.getParameter("computerIp");
 		
 		
-		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
-			Computer computer = new Computer();
-			computer.setComputerIp(computerIp);
-			computer.setComputerPosition(Integer.valueOf(computerPosition));
-			computer.setLabId(Integer.valueOf(labId));
-			computer.setisUsing(false);
-			
-			cs.insertcomputer(computer);
+		if (cs.searchComputerByPosition(Integer.valueOf(labId), Integer.valueOf(computerPosition)) == null) {
+			if (cs.searchComputerByIp(computerIp) == null) {
+				Computer computer = new Computer();
+				computer.setComputerIp(computerIp);
+				computer.setComputerPosition(Integer.valueOf(computerPosition));
+				computer.setLabId(Integer.valueOf(labId));
+				computer.setisUsing(false);
+				
+				cs.insertcomputer(computer);
+			}
+			else {
+				response.setStatus(222);
+			}
 		}
 		else {
 			response.setStatus(221);
@@ -65,15 +70,20 @@ public class ComputerController {
 //		String labId = request.getParameter("labId");
 		String computerId = request.getParameter("computerId");
 //		String computerIp = request.getParameter("computerIp");
-		
-		
-		Computer computer = new Computer();
+		Computer computer = (Computer)cs.searchComputerById(Integer.valueOf(computerId));
+		if (!computer.getisUsing()) {
+			cs.deletecomputer(computer);
+		}
+		else {
+			response.setStatus(224);
+		}
+//		Computer computer = new Computer();
 //		computer.setComputerIp(computerIp);
-		computer.setComputerId(Integer.valueOf(computerId));
+//		computer.setComputerId(Integer.valueOf(computerId));
 //		computer.setLabId(Integer.valueOf(labId));
 //		computer.setisUsing(false);
 
-		cs.deletecomputer(computer);
+
 	}
 	
 	@RequestMapping(value = "/updateComputer", method = RequestMethod.GET)
@@ -83,18 +93,23 @@ public class ComputerController {
 		String computerPosition = request.getParameter("computerPosition");
 		String computerIp = request.getParameter("computerIp");
 		
-		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
-			Computer computer = cs.searchComputerById(Integer.valueOf(computerId));
-			computer.setComputerIp(computerIp);
-			computer.setComputerPosition(Integer.valueOf(computerPosition));
-			computer.setLabId(Integer.valueOf(labId));
+//		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
+		try {
+		Computer computer = cs.searchComputerById(Integer.valueOf(computerId));
+		computer.setComputerIp(computerIp);
+		computer.setComputerPosition(Integer.valueOf(computerPosition));
+		computer.setLabId(Integer.valueOf(labId));
 //			computer.setisUsing(false);
 
-			cs.updatecomputer(computer);
-		}
-		else {
+		cs.updatecomputer(computer);
+		}catch (Exception e) {
+			e.printStackTrace();
 			response.setStatus(222);
 		}
+//		}
+//		else {
+//			response.setStatus(222);
+//		}
 
 	}
 }
