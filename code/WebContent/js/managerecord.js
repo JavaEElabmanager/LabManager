@@ -31,8 +31,11 @@ window.onload=allrecord();
 					console.log(arr);
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
+						if(obj.endTime===undefined)
+							obj.endTime="该学生正在上机";
+						var time=secondsTotime(obj.duration);
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.recordId+"</td><td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td>";
+						tr.innerHTML="<td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td><td>"+time+"</td>";
 						table.appendChild(tr);
 					}
 				}
@@ -72,8 +75,11 @@ window.onload=allrecord();
 					console.log(arr);
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
+						if(obj.endTime===undefined)
+							obj.endTime="该学生正在上机";
+						var time=secondsTotime(obj.duration);
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td><td>"+obj.duration+"</td>";
+						tr.innerHTML="<td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td><td>"+time+"</td>";
 						table.appendChild(tr);
 					}
 				}
@@ -106,8 +112,9 @@ window.onload=allrecord();
 						console.log(obj);
 						if(obj.endTime===undefined)
 							obj.endTime="该学生正在上机";
+						var time=secondsTotime(obj.duration);
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td><td>"+obj.duration+"</td>";
+						tr.innerHTML="<td>"+obj.studentName+"</td><td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.startTime+"</td><td>"+obj.endTime+"</td><td>"+time+"</td>";
 						table.appendChild(tr);
 					}
 				}
