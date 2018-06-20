@@ -34,7 +34,12 @@
 					location.reload();
 				}
 				else if(xhr.status == 221) {
-					document.getElementById("error").innerHTML="实验室名称或位置已存在";
+					document.getElementById("error").innerHTML="实验室名称已存在";
+					return false;
+				}
+				else if(xhr.status == 222) {
+					document.getElementById("error").innerHTML="实验室位置已存在"
+					return false;
 				}
 				else{
 					window.location.href="#addLab";
@@ -69,12 +74,14 @@
 				console.log(xhr.status);
 				if(xhr.status == 200) {
 					table.innerHTML="";
-					var obj=JSON.parse(xhr.responseText);
-					console.log(obj);
-					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+
-					obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
-					table.appendChild(tr);
+					var arr=eval(xhr.responseText);
+					console.log(arr);
+					for (let i=0; i<arr.length; i++) {
+						var obj=arr[i];
+						var tr=document.createElement("tr");
+						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+						table.appendChild(tr);
+					}
 				}
 				else{
 					console.log(xhr.status);

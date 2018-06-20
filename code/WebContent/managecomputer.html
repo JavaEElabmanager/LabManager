@@ -12,18 +12,18 @@
 <body>
 	<ul class="nav nav-tabs nav-justified">
 			<li><a href="managelab.html">实验室管理</a></li>
-			<li id="title" class="active"><a href="#">计算机管理</a></li>
+			<li id='title' class='active'></li>
 		</ul>
 		<center><div style="padding: 50px 100px 10px;width:100%">
 			<form class="bs-example bs-example-form" role="form" action="">
 				<div class="row">
 					<div class="col-lg-12">
 				<div class="input-group">
-					<span class="input-group-addon">计算机关键字</span>
+					<!--<span class="input-group-addon">计算机关键字</span>
 					<input id="keywords" type="text" class="form-control" placeholder="请输入关键字...">
 					<span class="input-group-btn">
 						<button onclick="searchcomputer()" class="btn btn-default" type="button">查询</button>
-					</span>
+					</span>-->
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button" data-toggle="modal" data-target="#addComputer">添加计算机</button>
 					</span>
@@ -106,7 +106,7 @@
 		
 				<div class="input-group">
 					<span class="input-group-addon">实验室编号:</span>
-					<input type="text" class="form-control" id="labid2">
+					<input readonly unselectable="on" type="text" class="form-control" id="labid2">
 				</div>
 				<br />
 				<div class="input-group">

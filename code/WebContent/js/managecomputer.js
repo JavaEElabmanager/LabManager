@@ -6,7 +6,7 @@
 	var labid2="";
 	var isusing=false;
 	var keywords="";
-	document.getElementById("title").innerHTML=labid+"号实验室计算机"
+	document.getElementById("title").innerHTML="<a>"+labid+"号实验室计算机</a>";
 	window.onload=allcomputer();
 	function addcomputer(){
 		computerposition="";
@@ -25,6 +25,10 @@
 				document.getElementById("error").innerHTML="计算机ip不能为空";
 				return false;
 			}
+		if(!checkip(computerip)){
+			document.getElementById("error").innerHTML="请输入正确ip";
+			return false;
+		}
 		$.ajax({
 			url:"http://localhost:8080/LabManager/addComputer",
 			data: {
@@ -44,7 +48,12 @@
 					window.location.href=url;
 				}
 				else if(xhr.status == 221) {
-					document.getElementById("error").innerHTML="该计算机已存在";
+					document.getElementById("error").innerHTML="该计算机位置已存在";
+					return false;
+				}
+				else if(xhr.status == 222) {
+					document.getElementById("error").innerHTML="该计算机ip已存在";
+					return false;
 				}
 				else{
 					window.location.href="#addComputer";
@@ -186,10 +195,15 @@
 			document.getElementById("error2").innerHTML="计算机ip不能为空";
 			return false;
 		}
+		if(!checkip(computerip)){
+			document.getElementById("error2").innerHTML="请输入正确ip";
+			return false;
+		}
 		$.ajax({
 			url:"http://localhost:8080/LabManager/updateComputer",
-			data: {uterId: computerid,
+			data: {
 				labId: labid2,
+				computerId: computerid,
 				computerPosition: computerposition,
 				computerIp: computerip
 			},
@@ -201,11 +215,13 @@
 				console.log(status);
 				console.log(xhr.status);
 				if(xhr.status == 200) {
-					location.reload();
+					console.log(xhr.responseText);
+					var url="managecomputer.html?labid="+labid;
+					window.location.href=url;
 				}
 				else{
 					window.location.href="#updateComputer";
-					document.getElementById("error").innerHTML=xhr.status;
+					document.getElementById("error2").innerHTML=xhr.status;
 					console.log(xhr.status);
 					return false;
 				}
