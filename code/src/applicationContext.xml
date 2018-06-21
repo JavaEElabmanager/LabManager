@@ -114,14 +114,18 @@
 <!-- 事务增强,引用前面配置的Hibernate事务管理器 -->
 <tx:advice id="txAdvice" transaction-manager="txManager">
     <tx:attributes>
-        <tx:method name="get*" read-only="false"/><!-- 为了使用add方法把read-only="true"改了 -->
-        <tx:method name="*"/>
+        <tx:method name="insert*" propagation="REQUIRED"/>
+        <tx:method name="load*" propagation="REQUIRED"/>
+        <tx:method name="search*" propagation="REQUIRED"/>
+        <tx:method name="update*" propagation="REQUIRED"/>
+        <tx:method name="delete*" propagation="REQUIRED"/>
+        <tx:method name="*" read-only="false"/>
     </tx:attributes>
 </tx:advice>
 
 <!-- 事务切面 -->
   <aop:config>
-    <aop:pointcut expression="execution(* lab.service.*.*(..))" id="txMethod" />
+    <aop:pointcut expression="execution(* service.*.*(..))" id="txMethod" />
     <aop:advisor advice-ref="txAdvice" pointcut-ref="txMethod"/>
 </aop:config>
 </beans>
