@@ -110,6 +110,9 @@
 						table.appendChild(tr);
 					}
 				}
+				else if(xhr.status == 230) {
+					window.location.href = 'index.html';
+				}
 				else{
 					console.log(xhr.status);
 				}

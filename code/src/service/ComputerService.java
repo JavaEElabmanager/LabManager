@@ -32,6 +32,9 @@ public class ComputerService {
 	public List searchComputerByLabId(int LabId) {
 		return computerdao.searchComputerByLabId(LabId);
 	}
+	public List searchComputerByLabIdAndPosition(int LabId, int computerPosition) {
+		return computerdao.searchComputerByLabIdAndPosition(LabId, computerPosition);
+	}
 	public List searchComputerByLabIdNotusing(int LabId) {
 		return computerdao.searchComputerByLabIdNotusing(LabId);
 	}

@@ -62,6 +62,9 @@ function loadlab(){//加载第一个选项列表
 				}
 				window.onload=loadcomputer(selectlab.options[0].value);//页面加载完成后加载第二个选项列表
 			}
+			else if(xhr.status == 230) {
+				window.location.href = 'index.html';
+			}
 			else{
 				console.log(xhr.status);
 			}
@@ -94,7 +97,7 @@ function loadcomputer(name){//加载第二个选项列表
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var op=document.createElement("option");
-						op.value=""+obj.computerId;
+						op.value=""+obj.computerPosition;
 						op.innerText=obj.computerPosition;
 						selectcomputer.appendChild(op);
 					}
@@ -121,6 +124,7 @@ function startcomputer(){//开始上机
 	var value2=selectcomputer.options[index2].value;
 	var studentid=document.getElementById("studentid").value;
 
+	console.log(value2)
 	if(checknull(studentid)||!checknumber(studentid)){
 		startcomputer
 		return false;

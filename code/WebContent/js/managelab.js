@@ -56,7 +56,8 @@
 	function searchlab(){
 		keywords="";
 		keywords=document.getElementById("keywords").value;
-		if(checknull(keywords)||!checknumber(keywords)){
+		console.log(keywords)
+		if(checknull(keywords)){
 			location.reload();
 			return false;
 		}
@@ -113,6 +114,9 @@
 						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
 						table.appendChild(tr);
 					}
+				}
+				else if(xhr.status == 230) {
+					window.location.href = 'index.html';
 				}
 				else{
 					console.log(xhr.status);
@@ -181,6 +185,10 @@
 				console.log(xhr.status);
 				if(xhr.status == 200) {
 					location.reload();
+				}
+				else if (xhr.status == 223) {
+					document.getElementById("error2").innerHTML="实验室名称或位置重复";
+					return false;
 				}
 				else{
 					window.location.href="#updateLab";

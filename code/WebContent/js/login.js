@@ -1,5 +1,6 @@
 		var username="";
 		var pwd="";
+//		var code=urlToobj().code;
 		function clickbutton(){
 			username="";
 			pwd="";
@@ -42,3 +43,19 @@
 			}
 		});
 		}
+		
+//		function urlToobj(){
+//			var obj={};
+//			var url=location.href;
+//			var arr1=url.split('?');
+//			if (arr1.length > 1) {
+//				var arr2=arr1[1].split('&');
+//				var arr3;
+//				for (let i=0; i<arr2.length; i++) {
+//					arr3=arr2[i].split('=');
+//					obj[arr3[0]]=arr3[1];
+//				}
+//				return obj;
+//			}
+//			return {code: 0};
+//		}

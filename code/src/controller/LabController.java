@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 
 import config.Listener;
 import model.Lab;
+import service.ComputerService;
 import service.LabService;
 import tools.Tools;
 
@@ -20,6 +21,7 @@ import tools.Tools;
 public class LabController {
 	
 	static LabService as = (LabService)Listener.applicationContext.getBean("labservice");
+	static ComputerService cs = (ComputerService)Listener.applicationContext.getBean("computerservice");
 	
 	@RequestMapping(value = "/allLab", method = RequestMethod.GET)
 	public void loadAllLab(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -116,13 +118,18 @@ public class LabController {
 //		String labPosition = request.getParameter("labPosition");
 //		System.out.println(labName);
 		
-		
-		Lab lab = new Lab();
-		lab.setLabId(Integer.valueOf(labId));
-//		lab.setLabName(labName);
-//		lab.setLabPosition(labPosition);
-		
-		as.deletelab(lab);
+		if ( cs.searchComputerByLabId(Integer.valueOf(labId)).isEmpty()) {
+			Lab lab = new Lab();
+			lab.setLabId(Integer.valueOf(labId));
+//			lab.setLabName(labName);
+//			lab.setLabPosition(labPosition);
+			
+			as.deletelab(lab);
+		}
+		else {
+			response.setStatus(231);
+		}
+
 
 	}
 }

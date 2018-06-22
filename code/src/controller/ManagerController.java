@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import config.Listener;
 import model.Computer;
 import model.Record;
+import model.Student;
 import service.ComputerService;
 import service.LabService;
 import service.RecordService;
@@ -52,22 +53,27 @@ public class ManagerController {
 		String computerPosition = request.getParameter("computerPosition");
 		String studentId = request.getParameter("studentId");
 		labName = new String(labName.getBytes("iso8859-1"),"UTF-8");
-		System.out.println("stuId" + studentId);
-		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
-		computer.setisUsing(true);
-		cs.updatecomputer(computer);
+		System.out.println("computer:" + computerPosition);
 		
-		Record record = new Record();
-		record.setStudentId(Integer.valueOf(studentId));
-		record.setLabId(ls.searchlab(labName).getLabId());
-		record.setComputerPosition(Integer.valueOf(computerPosition));
-		record.setStartTime(new Timestamp(System.currentTimeMillis()));
-		record.setStudentName(ss.searchstudent(Integer.valueOf(studentId)).getStudentName());
-		record.setLabName(labName);
-		
-		rs.insertrecord(record);
-		
-
+		Student stu = ss.searchstudent(Integer.valueOf(studentId));
+		if (stu == null) {
+			response.setStatus(231);
+		}
+		else {
+			Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
+			computer.setisUsing(true);
+			cs.updatecomputer(computer);
+			
+			Record record = new Record();
+			record.setStudentId(Integer.valueOf(studentId));
+			record.setLabId(ls.searchlab(labName).getLabId());
+			record.setComputerPosition(Integer.valueOf(computerPosition));
+			record.setStartTime(new Timestamp(System.currentTimeMillis()));
+			record.setStudentName(ss.searchstudent(Integer.valueOf(studentId)).getStudentName());
+			record.setLabName(labName);
+			
+			rs.insertrecord(record);
+		}	
 	}
 	
 	@RequestMapping(value = "/endRecord", method = RequestMethod.GET)

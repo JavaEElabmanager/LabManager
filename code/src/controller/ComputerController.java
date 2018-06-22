@@ -95,15 +95,27 @@ public class ComputerController {
 		
 //		if (cs.searchComputerByPositionAndLabId(Integer.valueOf(computerPosition), Integer.valueOf(labId), computerIp) == null) {
 		try {
-		Computer computer = cs.searchComputerById(Integer.valueOf(computerId));
-		computer.setComputerIp(computerIp);
-		computer.setComputerPosition(Integer.valueOf(computerPosition));
-		computer.setLabId(Integer.valueOf(labId));
-//			computer.setisUsing(false);
+			Computer oldcomputer = cs.searchComputerById(Integer.valueOf(computerId));
+			Computer computer = new Computer(oldcomputer.getComputerId(), oldcomputer.getComputerPosition(), oldcomputer.getLabId(), oldcomputer.getComputerIp(), oldcomputer.getisUsing());
+			if (!computer.getisUsing()) {	
+				computer.setComputerIp(computerIp);
+				computer.setComputerPosition(Integer.valueOf(computerPosition));
+				computer.setLabId(Integer.valueOf(labId));
+				cs.updatecomputer(computer);
+//					computer.setisUsing(false);
 
-		cs.updatecomputer(computer);
+				if (cs.searchComputerByLabIdAndPosition(Integer.valueOf(labId), Integer.valueOf(computerPosition)).size() > 1) {
+					cs.updatecomputer(oldcomputer);
+					System.out.println(226);
+					response.setStatus(226);
+				}
+			}
+			else {
+				response.setStatus(225);
+			}
+		
 		}catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();	
 			response.setStatus(222);
 		}
 //		}

@@ -48,7 +48,7 @@
 					window.location.href=url;
 				}
 				else if(xhr.status == 221) {
-					document.getElementById("error").innerHTML="该计算机位置已存在";
+					document.getElementById("error").innerHTML="该计算机机号已存在";
 					return false;
 				}
 				else if(xhr.status == 222) {
@@ -128,6 +128,9 @@
 						tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
 						table.appendChild(tr);
 					}
+				}
+				else if(xhr.status == 230) {
+					window.location.href = 'index.html';
 				}
 				else{
 					console.log(xhr.status);
@@ -218,6 +221,18 @@
 					console.log(xhr.responseText);
 					var url="managecomputer.html?labid="+labid;
 					window.location.href=url;
+				}
+				else if (xhr.status == 222) {
+					document.getElementById("error2").innerHTML="计算机ip已存在";
+					return false;
+				}
+				else if (xhr.status == 225) {
+					document.getElementById("error2").innerHTML="不可修改正在使用的计算机";
+					return false;
+				}
+				else if (xhr.status == 226) {
+					document.getElementById("error2").innerHTML="计算机位置已存在";
+					return false;
 				}
 				else{
 					window.location.href="#updateComputer";

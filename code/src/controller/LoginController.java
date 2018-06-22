@@ -17,7 +17,7 @@ import tools.Tools;
 public class LoginController {
 	static AdministratorService as = (AdministratorService)Listener.applicationContext.getBean("administratorservice");
 	@RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
-	public void handleRequest(HttpServletRequest request, HttpServletResponse respond) throws Exception {
+	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -28,7 +28,7 @@ public class LoginController {
             /*sessionÎ´Íê³É*/
 		}
 		else {
-			respond.setStatus(221);
+			response.setStatus(221);
 //			System.out.println("else");
 		}
 	}
