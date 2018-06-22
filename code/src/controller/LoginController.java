@@ -16,7 +16,7 @@ import tools.Tools;
 @Controller
 public class LoginController {
 	static AdministratorService as = (AdministratorService)Listener.applicationContext.getBean("administratorservice");
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
 	public void handleRequest(HttpServletRequest request, HttpServletResponse respond) throws Exception {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");

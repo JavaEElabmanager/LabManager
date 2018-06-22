@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:context="http://www.springframework.org/schema/context"
@@ -8,6 +9,8 @@
     xsi:schemaLocation=
         "http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
         http://www.springframework.org/schema/tx
@@ -16,7 +19,8 @@
         http://www.springframework.org/schema/task/spring-task-4.1.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-
+<context:component-scan base-package="aspect" />
+<aop:aspectj-autoproxy />
 <!-- 配置数据源(DB层),使用Apache的DBCP2数据源连接池 -->
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <!-- 指定连接数据库的驱动 -->
@@ -128,4 +132,5 @@
     <aop:pointcut expression="execution(* service.*.*(..))" id="txMethod" />
     <aop:advisor advice-ref="txAdvice" pointcut-ref="txMethod"/>
 </aop:config>
+
 </beans>
