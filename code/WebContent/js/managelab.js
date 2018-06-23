@@ -144,6 +144,10 @@
 					console.log(xhr.responseText);
 					location.reload();
 				}
+				else if(xhr.status == 231){
+					alert("该实验室还有计算机");
+					return false;
+				}
 				else{
 					console.log(xhr.status);
 				}

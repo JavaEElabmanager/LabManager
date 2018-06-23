@@ -159,6 +159,10 @@
 					var url="managecomputer.html?labid="+labid;
 					window.location.href=url;
 				}
+				else if(xhr.status == 224){
+					alert("该计算机正在使用");
+					return false;
+				}
 				else{
 					console.log(xhr.status);
 				}
@@ -169,6 +173,8 @@
 		});
 	}
 	function updatebutton(id,position,ip){
+		var newerror=document.getElementById("error2");
+		newerror.innerHTML="";
 		computerid=id;
 		$("#labid2").val(labid);
 		$("#computerposition2").val(position);

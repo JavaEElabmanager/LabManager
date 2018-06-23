@@ -123,12 +123,15 @@ function startcomputer(){//开始上机
 	var index2=selectcomputer.selectedIndex;
 	var value2=selectcomputer.options[index2].value;
 	var studentid=document.getElementById("studentid").value;
-
-	console.log(value2)
-	if(checknull(studentid)||!checknumber(studentid)){
-		startcomputer
+	if(checknull(studentid)){
+		alert("输入不能为空");
 		return false;
 	}
+	else if(!checknumber(studentid)){
+		alert("学生学号必须为数字");
+		return false;
+	}
+	console.log(value2)
 	$.ajax({
 		url:"http://localhost:8080/LabManager/startRecord",
 		data:{
@@ -146,8 +149,13 @@ function startcomputer(){//开始上机
 			if(xhr.status == 200) {
 				location.reload();
 			}
+			else if(xhr.status == 231){
+				alert("该学生不存在");
+				return false;
+			}
 			else{
 				console.log(xhr.status);
+				return false;
 			}
 		},
 		error: function (error) {

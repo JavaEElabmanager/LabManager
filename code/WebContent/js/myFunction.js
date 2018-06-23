@@ -22,7 +22,7 @@ function checkip(Obj){//检查输出是否为ip地址
     }
     return false;
 }
-function secondsTotime(s) { 
+function secondsTotime(s) {//秒数转天数小时分钟秒钟
 	var day = Math.floor( s/ (24*3600) );
 	var hour = Math.floor( (s - day*24*3600) / 3600); 
 	var minute = Math.floor( (s - day*24*3600 - hour*3600) /60 ); 
