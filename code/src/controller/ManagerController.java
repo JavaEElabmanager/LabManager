@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 import config.Listener;
 import model.Computer;
+import model.Lab;
 import model.Record;
 import model.Student;
 import service.ComputerService;
@@ -56,11 +57,19 @@ public class ManagerController {
 		System.out.println("computer:" + computerPosition);
 		
 		Student stu = ss.searchstudent(Integer.valueOf(studentId));
+		System.out.println(stu);
 		if (stu == null) {
 			response.setStatus(231);
 		}
+		else if (stu.getisUsing()) {
+			response.setStatus(232);
+		}
 		else {
-			Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
+			stu.setisUsing(true);
+			ss.updatestudent(stu);
+			
+			Lab lab = ls.searchlab(labName);
+			Computer computer = cs.searchComputerByPosition(lab.getLabId(), Integer.valueOf(computerPosition));
 			computer.setisUsing(true);
 			cs.updatecomputer(computer);
 			
@@ -90,6 +99,11 @@ public class ManagerController {
 		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
 		computer.setisUsing(false);
 		cs.updatecomputer(computer);
+		
+		int studentId = record.getStudentId();
+		Student student = ss.searchstudent(studentId);
+		student.setisUsing(false);
+		ss.updatestudent(student);
 		
 //		record.setStudentId(Integer.valueOf(studentId));
 //		record.setLabId(ls.searchlab(labName).getLabId());

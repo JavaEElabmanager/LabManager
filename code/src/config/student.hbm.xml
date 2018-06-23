@@ -7,5 +7,7 @@
         </id>
         <property name="studentName" column="studentName" type="string"
             not-null="true" />
+        <property name="isUsing" column="isUsing" type="boolean"
+            not-null="true" />
     </class>
 </hibernate-mapping>

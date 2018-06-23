@@ -22,6 +22,9 @@ public class StudentService {
 	public Student searchstudent(int studentId) {
 		return studentdao.searchStudent(studentId);
 	}
+	public List searchStudents(int StudentId) {
+		return studentdao.searchStudents(StudentId);
+	}
 	public void updatestudent(Student student) {
 		studentdao.updateStudent(student);
 	}

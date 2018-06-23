@@ -101,11 +101,13 @@ public class StudentController {
 //		String studentName = request.getParameter("studentName");
 		//System.out.println(labName);
 		
-		Student student = new Student();
-		student.setStudentId(Integer.valueOf(studentId));
+		Student student = as.searchstudent(Integer.valueOf(studentId));
+		if(student.getisUsing()) {
+			response.setStatus(224);
+		}
+		else {
+			as.deletestudent(student);
+		}
 //		student.setStudentName(studentName);
-		
-		as.deletestudent(student);
-
 	}
 }

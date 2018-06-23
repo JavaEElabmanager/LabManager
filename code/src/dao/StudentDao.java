@@ -29,6 +29,12 @@ public class StudentDao extends HibernateDaoSupport{
 		List<Student> ls_Student = (List<Student>) ht.find(hql,StudentId);
 		return (null == ls_Student || ls_Student.isEmpty()) ? null : ls_Student.get(0);
 	}
+	public List searchStudents(int StudentId) {
+		String hql = "from Student where StudentId like ? ";
+		HibernateTemplate ht = this.getHibernateTemplate();
+		List<Student> ls_Student = (List<Student>) ht.find(hql,"%"+StudentId+"%");
+		return ls_Student;
+	}
 	public void updateStudent(Student Student) {
 		HibernateTemplate ht = this.getHibernateTemplate();
 		ht.update(Student);

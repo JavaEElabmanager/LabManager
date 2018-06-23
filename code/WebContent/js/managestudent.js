@@ -139,6 +139,10 @@
 					console.log(xhr.responseText);
 					location.reload();
 				}
+				else if(xhr.status == 224) {
+					alert("该学生正在上机，无法删除");
+					return false;
+				}
 				else{
 					console.log(xhr.status);
 				}

@@ -153,6 +153,10 @@ function startcomputer(){//开始上机
 				alert("该学生不存在");
 				return false;
 			}
+			else if(xhr.status == 232){
+				alert("该学生已上机");
+				return false;
+			}
 			else{
 				console.log(xhr.status);
 				return false;
