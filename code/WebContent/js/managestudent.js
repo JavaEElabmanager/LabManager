@@ -76,7 +76,7 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+",	&apos;"+obj.studentName+"&apos;)'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><button class='btn btn-default' data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+",	&apos;"+obj.studentName+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='delstudent("+obj.studentId+")'>删除</button></td>";
 					table.appendChild(tr);
 				}
 				else{
@@ -106,7 +106,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><span data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+",	&apos;"+obj.studentName+"&apos;)'>修改</span>&nbsp<span onclick='delstudent("+obj.studentId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.studentId+"</td><td>"+obj.studentName+"</td><td><button class='btn btn-default' data-toggle='modal' data-target='#updateStudent' onclick='updatebutton("+obj.studentId+",	&apos;"+obj.studentName+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='delstudent("+obj.studentId+")'>删除</button></td>";
 						table.appendChild(tr);
 					}
 				}

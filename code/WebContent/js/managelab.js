@@ -80,7 +80,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><button class='btn btn-default' onclick='sendlabid("+obj.labId+")'>查看</button>&nbsp<button class='btn btn-default' data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='dellab("+obj.labId+")'>删除</button></td>";
 						table.appendChild(tr);
 					}
 				}
@@ -111,7 +111,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><span onclick='sendlabid("+obj.labId+")'>查看</span>&nbsp<span data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</span>&nbsp<span onclick='dellab("+obj.labId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.labId+"</td><td>"+obj.labName+"</td><td>"+obj.labPosition+"</td><td><button class='btn btn-default' onclick='sendlabid("+obj.labId+")'>查看</button>&nbsp<button class='btn btn-default' data-toggle='modal' data-target='#updateLab' onclick='updatebutton("+obj.labId+",&apos;"+obj.labName+"&apos;,&apos;"+obj.labPosition+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='dellab("+obj.labId+")'>删除</button></td>";
 						table.appendChild(tr);
 					}
 				}

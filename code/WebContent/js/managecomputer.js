@@ -92,7 +92,7 @@
 					var obj=JSON.parse(xhr.responseText);
 					console.log(obj);
 					var tr=document.createElement("tr");
-					tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
+					tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><button class='btn btn-default' data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='delcomputer("+obj.computerId+")'>删除</button></td>";
 					table.appendChild(tr);
 				}
 				else{
@@ -125,7 +125,7 @@
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><span data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</span>&nbsp<span onclick='delcomputer("+obj.computerId+")'>删除</span></td>";
+						tr.innerHTML="<td>"+obj.computerId+"</td><td>"+obj.computerPosition+"</td><td>"+obj.computerIp+"</td><td>"+obj.isUsing+"</td><td><button class='btn btn-default' data-toggle='modal' data-target='#updateComputer' onclick='updatebutton("+obj.computerId+","+obj.computerPosition+",&apos;"+obj.computerIp+"&apos;)'>修改</button>&nbsp<button class='btn btn-default' onclick='delcomputer("+obj.computerId+")'>删除</button></td>";
 						table.appendChild(tr);
 					}
 				}

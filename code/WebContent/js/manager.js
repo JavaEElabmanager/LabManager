@@ -26,7 +26,7 @@ function withoutend(){//显示全部没有结束的记录
 					for (let i=0; i<arr.length; i++) {
 						var obj=arr[i];
 						var tr=document.createElement("tr");
-						tr.innerHTML="<td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.studentName+"</td><td>"+obj.startTime+"</td><td><span onclick='endcomputer("+obj.recordId+")'>结束上机</span></td>";
+						tr.innerHTML="<td>"+obj.labName+"</td><td>"+obj.computerPosition+"</td><td>"+obj.studentName+"</td><td>"+obj.startTime+"</td><td><button class='btn btn-default' onclick='endcomputer("+obj.recordId+")'>结束上机</button></td>";
 						table.appendChild(tr);
 					}
 			}
