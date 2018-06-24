@@ -96,7 +96,7 @@ public class ManagerController {
 		rs.updaterecord(record);
 		
 		int computerPosition = record.getComputerPosition();
-		Computer computer = cs.searchComputerByPosition(Integer.valueOf(computerPosition));
+		Computer computer = cs.searchComputerByPosition(record.getLabId() ,Integer.valueOf(computerPosition));
 		computer.setisUsing(false);
 		cs.updatecomputer(computer);
 		
